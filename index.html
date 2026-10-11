@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta name="description" content="Кинотека — найди свою историю. Фильмы, сериалы, избранное и личные подборки.">
+  <title>Кинотека — найди свою историю</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <a href="#home" class="brand" aria-label="Кинотека — главная"><span class="brand-mark">▶</span><span>кинотека<span class="brand-dot">.</span></span></a>
+      <nav class="topnav" aria-label="Главная навигация">
+        <a href="#home" data-nav="home">Главная</a><a href="#catalog" data-nav="catalog">Каталог</a><a href="#lists" data-nav="lists">Мои списки</a>
+      </nav>
+      <div class="header-actions"><button class="iconbtn" id="themeToggle" title="Сменить тему" aria-label="Сменить тему">☾</button><button class="settings-btn" id="settingsBtn">⚙ <span>Настройки</span></button></div>
+    </header>
+    <main id="main" tabindex="-1"></main>
+    <footer class="footer"><span>кинотека<span class="brand-dot">.</span> <small>Найди свою историю</small></span><span>Данные: <a href="https://kinopoiskapiunofficial.tech/" target="_blank" rel="noopener noreferrer">Kinopoisk Unofficial API</a> · Неофициальный каталог</span></footer>
+    <nav class="mobile-nav" aria-label="Мобильная навигация"><a href="#home">⌂<span>Главная</span></a><a href="#catalog">⌕<span>Поиск</span></a><a href="#lists">♡<span>Списки</span></a><button id="mobileSettings">⚙<span>Ключ</span></button></nav>
+  </div>
+  <dialog id="settingsDialog" class="settings-modal"><form method="dialog" id="settingsForm"><div class="modal-head"><div><span class="eyebrow">ВАШЕ ПРОСТРАНСТВО</span><h2>Настройки Кинотеки</h2></div><button class="iconbtn" value="cancel" aria-label="Закрыть">✕</button></div><p class="muted">Введите персональный ключ Kinopoisk Unofficial API. Он используется прямо в вашем браузере; отправка на сервер Кинотеки не производится.</p><label for="apiKey">API-ключ</label><div class="key-row"><input id="apiKey" type="password" placeholder="Вставьте ключ API" autocomplete="off" spellcheck="false"><button type="button" class="btn outline" id="showKey">Показать</button></div><label class="checkline"><input type="checkbox" id="rememberKey"> Запомнить ключ в этом браузере</label><p class="tiny muted">Без сохранения ключ действует до закрытия вкладки. С сохранением — доступен в этом браузере до удаления. Не вводите ключ на чужом устройстве. В статическом сайте запросы видны в инструментах разработчика.</p><div id="keyStatus" role="status" class="status-line"></div><div class="modal-actions"><button type="button" class="btn outline" id="clearKey">Удалить ключ</button><button type="button" class="btn primary" id="saveKey">Подключить API ↗</button></div><div class="settings-bottom"><a target="_blank" rel="noopener noreferrer" href="https://kinopoiskapiunofficial.tech/">Получить API-ключ ↗</a><button type="button" id="exportLists" class="linkbtn">Экспортировать списки ↓</button><label for="importLists" class="linkbtn">Импортировать списки ↑</label><input id="importLists" type="file" accept="application/json,.json" hidden></div></form></dialog>
+    <dialog id="mediaDialog" class="media-dialog" aria-label="Просмотр медиа"><button type="button" class="media-close" aria-label="Закрыть просмотр" onclick="document.getElementById('mediaDialog').close()">✕</button><div id="mediaContent"></div></dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+  </div>
+</body></html>
